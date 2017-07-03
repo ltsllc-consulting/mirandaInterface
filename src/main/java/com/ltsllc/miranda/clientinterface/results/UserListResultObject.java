@@ -16,7 +16,6 @@
 
 package com.ltsllc.miranda.clientinterface.results;
 
-import com.ltsllc.miranda.clientinterface.objects.ResultObject;
 import com.ltsllc.miranda.clientinterface.basicclasses.User;
 
 import java.util.List;

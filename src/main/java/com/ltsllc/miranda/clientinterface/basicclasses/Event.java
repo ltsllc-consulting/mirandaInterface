@@ -106,7 +106,7 @@ import java.util.UUID;
  *     </tr>
  * </table>
  */
-public class Event extends MirandaObject {
+public class Event extends MirandaObject implements DirectoryEntry {
     private static SecureRandom random = new SecureRandom();
 
     public enum Methods {

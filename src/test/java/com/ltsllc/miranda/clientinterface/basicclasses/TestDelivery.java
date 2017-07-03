@@ -19,11 +19,12 @@ package com.ltsllc.miranda.clientinterface.basicclasses;
 import com.ltsllc.miranda.clientinterface.basicclasses.Delivery;
 import com.ltsllc.miranda.clientinterface.basicclasses.Event;
 import com.ltsllc.miranda.clientinterface.basicclasses.Subscription;
-import com.ltsllc.miranda.test.TestCase;
-import org.junit.Before;
+import com.ltsllc.miranda.clientinterface.test.TestCase;
 import org.junit.Test;
 
 import java.io.IOException;
+
+import static com.sun.xml.internal.ws.dump.LoggingDumpTube.Position.Before;
 
 /**
  * Created by Clark on 2/22/2017.
@@ -35,7 +36,7 @@ public class TestDelivery extends TestCase {
         return delivery;
     }
 
-    @Before
+
     public void setup() {
         try {
             reset();
@@ -69,7 +70,7 @@ public class TestDelivery extends TestCase {
     }
 
     @Test
-    public void testUpdateFrom () {
+    public void testUpdateFrom() {
         Delivery delivery = Delivery.createRandomDelivery();
         Delivery update = Delivery.createRandomDelivery();
         IllegalStateException illegalStateException = null;
@@ -84,7 +85,7 @@ public class TestDelivery extends TestCase {
     }
 
     @Test
-    public void testMatch () {
+    public void testMatch() {
         Delivery delivery = Delivery.createRandomDelivery();
         Delivery other = Delivery.createRandomDelivery();
 

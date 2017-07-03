@@ -26,6 +26,7 @@ import java.util.List;
  * Created by Clark on 3/4/2017.
  */
 public class StatusObject {
+
     private List<NodeElement> cluster = new ArrayList<NodeElement>();
     private List<Property> properties = new ArrayList<Property>();
     private NodeElement local;

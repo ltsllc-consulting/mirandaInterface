@@ -16,8 +16,6 @@
 
 package com.ltsllc.miranda.clientinterface.results;
 
-import com.ltsllc.miranda.clientinterface.objects.ResultObject;
-
 /**
  * Created by Clark on 4/18/2017.
  */

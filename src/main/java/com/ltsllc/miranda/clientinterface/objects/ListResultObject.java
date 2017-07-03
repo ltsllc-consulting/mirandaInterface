@@ -1,5 +1,7 @@
 package com.ltsllc.miranda.clientinterface.objects;
 
+import com.ltsllc.miranda.clientinterface.results.ResultObject;
+
 import java.util.List;
 
 /**

@@ -16,8 +16,8 @@
 
 package com.ltsllc.miranda.clientinterface.objects;
 
-import com.ltsllc.miranda.clientinterface.objects.ResultObject;
 import com.ltsllc.miranda.clientinterface.basicclasses.Subscription;
+import com.ltsllc.miranda.clientinterface.results.ResultObject;
 
 /**
  * Created by Clark on 4/22/2017.

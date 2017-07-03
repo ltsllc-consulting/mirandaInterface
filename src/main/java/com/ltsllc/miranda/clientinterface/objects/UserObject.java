@@ -18,12 +18,11 @@ package com.ltsllc.miranda.clientinterface.objects;
 
 import com.ltsllc.miranda.clientinterface.basicclasses.User;
 
-import static com.ltsllc.miranda.StatusObject.Status.New;
 
 /**
  * Created by Clark on 4/7/2017.
  */
-public class UserObject extends com.ltsllc.miranda.StatusObject {
+public class UserObject {
     private String name;
     private String category;
     private String description;
@@ -64,12 +63,10 @@ public class UserObject extends com.ltsllc.miranda.StatusObject {
     }
 
     public UserObject() {
-        super(New);
+
     }
 
     public UserObject(String name, String category, String description, String publicKeyPem) {
-        super(Status.New);
-
         this.name = name;
         this.category = category;
         this.description = description;
@@ -79,9 +76,6 @@ public class UserObject extends com.ltsllc.miranda.StatusObject {
     public User asUser() {
         User.UserTypes category = User.UserTypes.valueOf(getCategory());
         User user = new User(getName(), category, getDescription(), getPublicKeyPem());
-
-        user.setStatus(getStatus());
-
         return user;
     }
 

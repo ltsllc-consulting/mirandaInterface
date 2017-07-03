@@ -39,6 +39,7 @@ public class MirandaObject implements Matchable {
         this.lastChange = new Long(lastChange.longValue());
     }
 
+    @Override
     public boolean matches(Object o) {
         if (o == null)
             return false;

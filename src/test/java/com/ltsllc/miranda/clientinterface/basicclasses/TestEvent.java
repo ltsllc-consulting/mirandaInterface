@@ -19,12 +19,14 @@ package com.ltsllc.miranda.clientinterface.basicclasses;
 import com.ltsllc.common.util.ImprovedRandom;
 import com.ltsllc.common.util.Utils;
 import com.ltsllc.miranda.clientinterface.basicclasses.Event;
-import com.ltsllc.miranda.test.TestCase;
+import com.ltsllc.miranda.clientinterface.test.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
 import java.security.SecureRandom;
+
+import static com.sun.xml.internal.ws.dump.LoggingDumpTube.Position.Before;
 
 /**
  * Created by Clark on 2/19/2017.
@@ -41,7 +43,7 @@ public class TestEvent extends TestCase {
         this.event = null;
     }
 
-    @Before
+    @org.junit.Before
     public void setup () {
         try {
             reset();
@@ -65,7 +67,7 @@ public class TestEvent extends TestCase {
         assert (event.getMethod() == Event.Methods.PUT);
 
         byte[] whatever = Utils.hexStringToBytes(junk);
-        assert (arraysAreEquivalent(event.getContent(), whatever));
+        assert (byteArraysAreEqual(event.getContent(), whatever));
     }
 
     @Test

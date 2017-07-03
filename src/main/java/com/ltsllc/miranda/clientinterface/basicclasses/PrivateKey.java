@@ -18,7 +18,6 @@ package com.ltsllc.miranda.clientinterface.basicclasses;
 
 import com.ltsllc.common.util.Utils;
 import com.ltsllc.miranda.EncryptedMessage;
-import com.ltsllc.miranda.miranda.Miranda;
 
 import javax.crypto.Cipher;
 import javax.crypto.CipherOutputStream;
@@ -37,7 +36,7 @@ public class PrivateKey extends Key {
         return securityPrivateKey;
     }
 
-    public PrivateKey (java.security.PrivateKey privateKey) {
+    public PrivateKey(java.security.PrivateKey privateKey) {
         securityPrivateKey = privateKey;
     }
 
@@ -47,7 +46,7 @@ public class PrivateKey extends Key {
         throw new GeneralSecurityException("not implemented");
     }
 
-    public byte[] encrypt (Cipher cipher, byte[] plainText, int blockSize) throws GeneralSecurityException {
+    public byte[] encrypt(Cipher cipher, byte[] plainText, int blockSize) throws GeneralSecurityException {
         int numBlocks = calculateNumberOfBlocks(plainText.length, blockSize);
         byte[][] blocks = toBlocks(plainText, blockSize);
 
@@ -67,17 +66,17 @@ public class PrivateKey extends Key {
     }
 
 
-    public byte[][] createBlocks (byte[][] source) {
+    public byte[][] createBlocks(byte[][] source) {
         byte[][] buffer = new byte[source.length][];
 
         for (int i = 0; i < source.length; i++) {
-            buffer[i] = new byte [source[i].length];
+            buffer[i] = new byte[source[i].length];
         }
 
         return buffer;
     }
 
-    public byte[] copyBytes (byte[] source) {
+    public byte[] copyBytes(byte[] source) {
         byte[] buffer = new byte[source.length];
 
         for (int i = 0; i < source.length; i++) {
@@ -87,7 +86,7 @@ public class PrivateKey extends Key {
         return buffer;
     }
 
-    public byte[] decrypt (EncryptedMessage encryptedMessage) throws GeneralSecurityException, IOException {
+    public byte[] decrypt(EncryptedMessage encryptedMessage) throws GeneralSecurityException, IOException {
         Cipher cipher = Cipher.getInstance("RSA");
         cipher.init(Cipher.DECRYPT_MODE, getSecurityPrivateKey());
         byte[] cipherText = Utils.hexStringToBytes(encryptedMessage.getMessage());
@@ -101,13 +100,8 @@ public class PrivateKey extends Key {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         CipherOutputStream cipherOutputStream = new CipherOutputStream(byteArrayOutputStream, cipher);
 
-        try {
-            cipherOutputStream.write(cipherText);
-            cipherOutputStream.close();
-        } catch (IOException e) {
-            Panic panic = new Panic("Exception decrypting", e, Panic.Reasons.ExceptionDecrypting);
-            Miranda.panicMiranda(panic);
-        }
+        cipherOutputStream.write(cipherText);
+        cipherOutputStream.close();
 
         return byteArrayOutputStream.toByteArray();
     }

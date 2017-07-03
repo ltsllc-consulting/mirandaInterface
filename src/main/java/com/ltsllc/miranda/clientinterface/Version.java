@@ -21,8 +21,6 @@ package com.ltsllc.miranda.clientinterface;
  */
 
 import com.ltsllc.common.util.Utils;
-import com.ltsllc.miranda.file.SingleFile;
-import org.apache.log4j.Logger;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -39,8 +37,6 @@ import java.security.NoSuchAlgorithmException;
  * </P>
  */
 public class Version  {
-    private static Logger logger = Logger.getLogger(Version.class);
-
     private String sha1;
 
     public Version () {}
@@ -58,24 +54,6 @@ public class Version  {
         version.sha1 = sha1;
 
         return version;
-    }
-
-    /**
-     * When we are getting the version of an existing file.
-     * @param singleFile
-     */
-    public Version (SingleFile singleFile) throws NoSuchAlgorithmException, IOException {
-        FileInputStream fileInputStream = null;
-
-        try {
-            File file = new File(singleFile.getFilename());
-            fileInputStream = new FileInputStream(file);
-            byte[] sha1Bytes = Utils.calculateSha1(fileInputStream);
-
-            this.sha1 = Utils.bytesToString(sha1Bytes);
-        } finally {
-            Utils.closeIgnoreExceptions(fileInputStream);
-        }
     }
 
     public String getSha1() {

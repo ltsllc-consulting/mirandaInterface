@@ -25,8 +25,7 @@ import java.util.Date;
 /**
  * Created by Clark on 1/21/2017.
  */
-public class NodeElement extends MirandaObject implements Updateable<NodeElement>, Matchable<NodeElement> {
-    private static Gson ourGson = new Gson();
+public class NodeElement extends MirandaObject {
     private static SimpleDateFormat ourSimpleDateFormat = new SimpleDateFormat("yyyy.MM.dd@HH:mm:ss.SSS");
 
     private String dns;
@@ -65,7 +64,6 @@ public class NodeElement extends MirandaObject implements Updateable<NodeElement
     public void setPort(int port) {
         this.port = port;
     }
-
 
     public NodeElement (String dns, int port, String description) {
         this.dns = dns;
@@ -139,11 +137,6 @@ public class NodeElement extends MirandaObject implements Updateable<NodeElement
      */
     public boolean expired (long time) {
         return false;
-    }
-
-
-    public String toJson() {
-        return ourGson.toJson(this);
     }
 
     @Override
