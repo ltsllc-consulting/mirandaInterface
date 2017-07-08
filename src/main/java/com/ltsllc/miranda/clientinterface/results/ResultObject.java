@@ -47,4 +47,8 @@ public class ResultObject {
     public void setAdditionalInfo (Throwable t) {
         this.additionalInfo = Utils.toStacktrace (t);
     }
+
+    public void setException (Throwable t) {
+        setAdditionalInfo(t);
+    }
 }
