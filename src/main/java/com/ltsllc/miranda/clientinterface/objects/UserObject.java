@@ -86,7 +86,7 @@ public class UserObject {
         if (name == null || name.equals(""))
             return false;
 
-        if (category == null || category.equals("Nobody"))
+        if (category == null || category.equals("Unknown"))
             return false;
 
         if (description != null)

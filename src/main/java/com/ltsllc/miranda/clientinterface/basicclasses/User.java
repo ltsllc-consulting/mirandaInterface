@@ -53,7 +53,7 @@ import java.io.ObjectInputStream;
  *
  *             <p>
  *                 Allowable values are Publisher, Subscriber and Admin.
- *                 Nobody should not be used but is there for completeness.
+ *                 Unknown should not be used but is there for completeness.
  *             </p>
  *
  *             <p>
@@ -69,7 +69,7 @@ import java.io.ObjectInputStream;
  *             </p>
  *
  *             <p>
- *                 Users with a category of Nobody cannot do anything.
+ *                 Users with a category of Unknown cannot do anything.
  *             </p>
  *         </td>
  *     </tr>
@@ -99,7 +99,7 @@ public class User extends MirandaObject {
         Publisher,
         Subscriber,
         Admin,
-        Nobody
+        Unknown
     }
 
     private String name;
